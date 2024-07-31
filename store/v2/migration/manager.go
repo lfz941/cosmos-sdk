@@ -184,12 +184,8 @@ func (m *Manager) writeChangeset() error {
 		// Invoking this code in a closure so that defer is called immediately on return
 		// yet not in the for-loop which can leave resource lingering.
 		err = func() (err error) {
-			defer func() {
-				cErr := batch.Close()
-				if err == nil {
-					err = cErr
-				}
-			}()
+			defer batch.Close()
+			fmt.Println("just for testing")
 
 			if err := batch.Set(csKey, csBytes); err != nil {
 				return fmt.Errorf("failed to write changeset to db.Batch: %w", err)
