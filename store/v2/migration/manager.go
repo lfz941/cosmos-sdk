@@ -186,6 +186,7 @@ func (m *Manager) writeChangeset() error {
 		err = func() (err error) {
 			defer batch.Close()
 			fmt.Println("just for testing")
+			fmt.Println("just for testing")
 
 			if err := batch.Set(csKey, csBytes); err != nil {
 				return fmt.Errorf("failed to write changeset to db.Batch: %w", err)
