@@ -1,16 +1,6 @@
 name: Tests / Store V2
-on:
-  push:
-    branches:
-      - test/batch-close
-
-permissions:
-  contents: read
-
-concurrency:
-  group: ci-${{ github.ref }}-tests
-  cancel-in-progress: true
-
+on: workflow_dispatch
+  
 jobs:
   test-store-v2:
     runs-on: ubuntu-latest
